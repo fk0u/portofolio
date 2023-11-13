@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/contact.css">
+    <title>Contact</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">KOU</a>
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <ul>
+                <li><a href="/index.html" style="--navAni:1">Home</a></li>
+                <li><a href="/about.html" style="--navAni:2">About</a></li>
+                <li><a href="/skill.html" style="--navAni:3">Skills</a></li>
+                <li><a href="/project.html" style="--navAni:4">Project</a></li>
+                <li><a href="/contact.html" class="active" style="--navAni:5">Contact</a></li>
+            </ul>
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+    <section class="container">
+        <h1>My Contacts</h1>
+
+        <div class="skill">
+            <i class='bx bxl-linkedin'></i>
+            <p class="skill-name">LinkedIn</p>
+            <div class="contact-container">
+                <div class="contact"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class='bx bxl-github'></i>
+            <p class="skill-name">Github</p>
+            <div class="contact-container">
+                <div class="contact"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class='bx bxl-whatsapp'></i>
+            <p class="skill-name">WhatsApp</p>
+            <div class="contact-container">
+                <div class="contact""></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class="bx bxl-instagram"></i>
+            <p class="skill-name">Instagram</p>
+            <div class="contact-container">
+                <div class="contact"></div>
+            </div>
+        </div>
+
+        <div class="skill">
+            <i class="bx bxl-gmail"></i>
+            <p class="skill-name">Mail</p>
+            <div class="contact-container">
+                <div class="contact">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleReadMore() {
+            const readMoreContent = document.getElementById('readMoreContent');
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const readMoreText = document.getElementById('readMoreText');
+            
+            readMoreContent.classList.toggle('show-more');
+            
+            if (readMoreBtn.innerHTML === 'Read More') {
+                readMoreBtn.innerHTML = 'Read Less';
+            } else {
+                readMoreBtn.innerHTML = 'Read More';
+            }
+        }
+        
+        function redirectToLink(link) {
+            window.location.href = link;
+        }
+
+        // Add click event listener to each skill div
+        const skillDivs = document.querySelectorAll('.skill');
+        skillDivs.forEach((skill) => {
+            skill.addEventListener('click', () => {
+                const skillName = skill.querySelector('.skill-name').textContent.toLowerCase();
+                switch (skillName) {
+                    case 'linkedin':
+                        redirectToLink('https://linkedin.com/in/alghani/');
+                        break;
+                    case 'github':
+                        redirectToLink('https://github.com/fk0u');
+                        break;
+                    case 'whatsapp':
+                        redirectToLink('https://wa.me/6285172229517/');
+                        break;
+                    case 'instagram':
+                        redirectToLink('https://www.instagram.com/fk.k0u/');
+                        break;
+                    case 'mail':
+                        redirectToLink('mailto:kou.real@outlook.com');
+                        break;
+                    default:
+                        // Add default action or do nothing
+                        break;
+                }
+            });
+        });
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>
