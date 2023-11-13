@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="intro.css">
+    <title>About Me</title>
+</head>
+
+<body>
+    <header class="container">
+        <div class="page-header">
+            <div class="logo">
+                <a href="#">KOU</a>
+            </div>
+            <input type="checkbox" id="click">
+
+            <label for="click" class="mainicon">
+                <div class="menu">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </label>
+            <ul>
+                <li><a href="/index.html" style="--navAni:1">Home</a></li>
+                <li><a href="/about.html" class="active" style="--navAni:2">About</a></li>
+                <li><a href="/skill.html" style="--navAni:3">Skills</a></li>
+                <li><a href="/project.html" style="--navAni:4">Project</a></li>
+                <li><a href="/contact.html" style="--navAni:5">Contact</a></li>
+            </ul>
+            <label class="mode">
+                <input type="checkbox" id="darkModeToggle">
+                <i class='bx bxs-moon'></i>
+            </label>
+        </div>
+    </header>
+
+    <section class="container">
+        <div class="main">
+            <div class="detail">
+                <h3>Hi, It's Me</h3>
+                <h1>I'm <span style="color:#f9532d;">Al-Ghani</span></h1>
+                <div id="readMoreContent">
+                    <p>Seorang Junior Web Developer berusia 16 tahun yang berbasis di Samarinda, ...</p>
+                    <p id="readMoreText">
+                        Saat ini, saya tengah menempuh pendidikan di SMKN 7 Samarinda, berada di kelas 10. Pada tahun 2022, saya memiliki pengalaman sebagai pemilik private server game selama satu tahun, di mana saya tidak hanya memperdalam pemahaman teknis saya tetapi juga mengasah kemampuan manajemen server dan pemecahan masalah.
+                        Meskipun masih di tahap awal perkembangan karir, pengalaman saya sebagai pemilik server game telah membuka mata saya terhadap kompleksitas dunia pengembangan web. Saya berhasil menghadapi tantangan teknis dan membangun pemahaman yang lebih mendalam tentang kebutuhan pengguna serta keberlanjutan proyek.
+                        Dengan minat saya yang penuh gairah dalam pengembangan web, saya berkomitmen untuk terus memperluas keterampilan dan pengetahuan saya. Saya percaya bahwa pengalaman sebagai pemilik server game telah memberi saya landasan yang kuat untuk menjelajahi dunia web development secara lebih luas.
+                        Sebagai seorang Junior Web Developer yang telah memiliki pengalaman praktis, saya siap untuk melangkah lebih jauh dalam dunia pengembangan web dan memberikan kontribusi maksimal dalam menciptakan solusi web inovatif dan efektif. Dengan dedikasi yang tinggi dan semangat belajar yang tak kenal lelah, saya yakin dapat membawa nilai tambah bagi tim dan mencapai keberhasilan dalam setiap proyek yang saya hadapi.
+                    </p>
+                    
+                    <div id="readMoreBtn" onclick="toggleReadMore()">Read More</div>
+                </div>
+                <div class="social">
+                    <a href="http://linkedin.com/in/alghani/" style="--socialAni:1"><i class='bx bxl-linkedin'></i></a>
+                    <a href="http://instagram.com/fk.k0u/" style="--socialAni:2"><i class='bx bxl-instagram'></i></a>
+                    <a href="http://github.com/fk0u" style="--socialAni:3"><i class='bx bxl-github'></i></a>
+                    <a href="mailto:kou.real@outlook.com" style="--socialAni:4"><i class='bx bxl-gmail'></i></a>
+                </div>
+            </div>
+            <div class="img-sec">
+                <div class="images">
+                    <img src="f-1.png" alt="" class="img-w">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleReadMore() {
+            const readMoreContent = document.getElementById('readMoreContent');
+            const readMoreBtn = document.getElementById('readMoreBtn');
+            const readMoreText = document.getElementById('readMoreText');
+            
+            readMoreContent.classList.toggle('show-more');
+            
+            if (readMoreBtn.innerHTML === 'Read More') {
+                readMoreBtn.innerHTML = 'Read Less';
+            } else {
+                readMoreBtn.innerHTML = 'Read More';
+            }
+        }        
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+            darkModeToggle.checked = true;
+        }
+        darkModeToggle.addEventListener('change', () => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    </script>
+</body>
+
+</html>
